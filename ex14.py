@@ -26,9 +26,9 @@ class DoubleLinkedList(object):
             self.begin = DoubleLinkedListNode(self.begin.value, self.end, None)
 
         else:
-            x = self.end
-            self.end = DoubleLinkedListNode(obj, None, x)
-            x.next = self.end
+            node = DoubleLinkedListNode(obj, None, self.end)
+            self.end.next = node
+            self.end = node
 
     def pop(self):
         """Removes the last item and returns it."""
@@ -84,11 +84,11 @@ class DoubleLinkedList(object):
         It should take a node, and detach it from the list, whether the node is
         at the front, end, or in the middle."""
         # if the node is at the end
-        if self.end = node:
+        if self.end == node:
             self.pop()
 
         # elif it's at the beginning
-        elif self.begin = node:
+        elif self.begin == node:
             # call unshift
             self.unshift()
         #else it's in the middle
