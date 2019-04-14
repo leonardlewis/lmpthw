@@ -1,9 +1,12 @@
-from dllist import DoubleLinkedList
+from ex14 import DoubleLinkedList
 
 class Dictionary(object):
+    # Magic function to create new dictionary instance.
     def __init__(self, num_buckets=256):
         """Initializes a Map with the given number of buckets."""
+        # Dictionaries have an attribute called "map," which is a DLL.
         self.map = DoubleLinkedList()
+        # Create an empty DLL for each bucket.
         for i in range(0, num_buckets):
             self.map.push(DoubleLinkedList())
 
