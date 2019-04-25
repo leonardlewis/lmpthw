@@ -6,17 +6,23 @@ class Dictionary(object):
         """Initializes a Map with the given number of buckets."""
         # Dictionaries have an attribute called "map," which is a DLL.
         self.map = DoubleLinkedList()
-        # Create an empty DLL for each bucket.
+        # Create an empty DLL for each bucket. The map is a list of lists.
+        # In this case, the map is a list of 256 lists because that's how many
+        # buckets we have.
         for i in range(0, num_buckets):
             self.map.push(DoubleLinkedList())
 
+    # A function that takes a key and returns an index for the map's buckets.
     def hash_key(self, key):
         """Given a key this will create a number and then convert it to an index
         for the AMap's buckets."""
+        # Returns the output of a modulo operation on the hash value of the key
+        # and the total numbers of items in the map.
         return hash(key) % self.map.count()
 
     def get_bucket(self, key):
-        """Given a key, find thebucket where it would go."""
+        """Given a key, find the bucket where it would go."""
+        # Get an index for the map's buckets based on the key input to the function.
         bucket_id = self.hash_key(key)
         return self.map.get(bucket_id)
 
