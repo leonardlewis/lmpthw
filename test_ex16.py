@@ -10,7 +10,7 @@ def random_list(count):
         numbers.shift(randint(0, 10000))
     return numbers
 
-def is_sorted(numkbers):
+def is_sorted(numbers):
     node = numbers.begin
     while node and node.next:
         if node.value > node.next.value:

@@ -3,7 +3,7 @@ from ex15 import *
 def test_push():
     teams = Stack()
     teams.push("Giants")
-    teams.push("Indians")
+    teams.push("Twins")
 
     assert teams.top.value == "Indians"
 
